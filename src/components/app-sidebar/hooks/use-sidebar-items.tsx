@@ -11,7 +11,7 @@ export function useSidebarItems() {
         {
           title: 'Ana səhifə',
           icon: <IconHome />,
-          to: '/',
+          to: '/dashboard',
         },
         {
           title: 'Sənədlərim',
