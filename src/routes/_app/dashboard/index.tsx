@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { IconArrowRight, IconSearch } from '@tabler/icons-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item';
+import { IconArrowRight, IconStarFilled } from '@tabler/icons-react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_app/dashboard/')({
   component: RouteComponent,
@@ -8,40 +10,40 @@ export const Route = createFileRoute('/_app/dashboard/')({
 
 function RouteComponent() {
   return (
-    <div className='space-y-4 p-4'>
-      <div className='flex gap-2'>
-        <Button size="xs" variant="secondary"><IconSearch data-icon="inline-start" />Get Started <IconArrowRight data-icon="inline-end" /></Button>
-        <Button size="sm" variant="secondary"><IconSearch data-icon="inline-start" />Get Started <IconArrowRight data-icon="inline-end" /></Button>
-        <Button variant="secondary"><IconSearch data-icon="inline-start" />Get Started <IconArrowRight data-icon="inline-end" /></Button>
-        <Button size="lg" variant="secondary"><IconSearch data-icon="inline-start" />Get Started <IconArrowRight data-icon="inline-end" /></Button>
-      </div>
+    <div data-slot="page-layout" className="flex flex-col flex-1 overflow-y-auto p-4">
+      <div className="grid grid-cols-3">
+        <Card size="sm">
+          <CardHeader>
+            <CardTitle>Seçilmiş sənədlər</CardTitle>
+            <CardAction>
+              <Button variant="muted" size="xs" className="rounded-full">
+                Hamısına bax
+              </Button>
+            </CardAction>
+          </CardHeader>
 
-      <div className='flex gap-2'>
-        <Button size="xs" variant="default">Get Started</Button>
-        <Button size="sm" variant="default">Get Started</Button>
-        <Button variant="default">Get Started</Button>
-        <Button size="lg" variant="default">Get Started</Button>
-      </div>
+          <CardContent className="space-y-1">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <Item render={<Link to="/" />} key={index} className="rounded-xl" variant="muted">
+                <ItemActions>
+                  <IconStarFilled className="size-6 text-amber-500" />
+                </ItemActions>
 
-      <div className='flex gap-2'>
-        <Button size="xs" variant="secondary">Get Started</Button>
-        <Button size="sm" variant="secondary">Get Started</Button>
-        <Button variant="secondary">Get Started</Button>
-        <Button size="lg" variant="secondary">Get Started</Button>
-      </div>
+                <ItemContent>
+                  <ItemDescription>12.10.2025</ItemDescription>
+                  <ItemTitle className="text-base line-clamp-1">Rəsmi sənəd №564 haqqında ümumi məlumat</ItemTitle>
+                </ItemContent>
 
-      <div className='flex gap-2'>
-        <Button size="xs" variant="outline">Get Started</Button>
-        <Button size="sm" variant="outline">Get Started</Button>
-        <Button variant="outline">Get Started</Button>
-        <Button size="lg" variant="outline">Get Started</Button>
-      </div>
-
-      <div className='flex gap-2'>
-        <Button size="icon-xs" variant="outline"><IconSearch /></Button>
-        <Button size="icon-sm" variant="outline"><IconSearch /></Button>
-        <Button variant="outline" size="icon"><IconSearch /></Button>
-        <Button size="icon-lg" variant="outline"><IconSearch /></Button>
+                <ItemActions>
+                  <Button render={<div />} nativeButton={false} variant="outline" size="icon-xs" className="rounded-full">
+                    <IconArrowRight />
+                    <span className="sr-only">Bax</span>
+                  </Button>
+                </ItemActions>
+              </Item>
+            ))}
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

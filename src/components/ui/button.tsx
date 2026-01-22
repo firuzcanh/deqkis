@@ -14,13 +14,14 @@ const buttonVariants = cva(
           'border-border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 aria-expanded:bg-muted aria-expanded:text-foreground',
         ghost: 'hover:bg-subtle hover:text-subtle-foreground aria-expanded:bg-subtle aria-expanded:text-subtle-foreground',
         subtle: 'bg-subtle text-subtle-foreground hover:bg-subtle/70 aria-expanded:bg-subtle aria-expanded:text-subtle-foreground',
+        muted: 'bg-muted text-foreground hover:bg-subtle hover:text-subtle-foreground aria-expanded:bg-subtle aria-expanded:text-subtle-foreground',
         destructive:
           'bg-destructive/10 hover:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/20 text-destructive focus-visible:border-destructive/40 dark:hover:bg-destructive/30',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-10 gap-2 px-4 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 [&_svg:not([class*="size-"])]:size-5',
-        xs: 'h-8 gap-1 rounded-[min(var(--radius-md),10px)] px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*="size-"])]:size-4',
+        xs: 'h-8 gap-1 px-3 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*="size-"])]:size-4',
         sm: 'h-9 gap-1.5 px-2.5 in-data-[slot=button-group]:rounded-md has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&_svg:not([class*="size-"])]:size-4',
         lg: 'h-11 gap-2 px-4 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 [&_svg:not([class*="size-"])]:size-5',
 

@@ -1,7 +1,9 @@
+import { useIsMobile } from '@/hooks/use-mobile';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from '@/components/ui/item';
-import { useIsMobile } from '@/hooks/use-mobile';
 import { IconChevronDown, IconLogout, IconUser } from '@tabler/icons-react';
 
 export function MenuUser() {
@@ -9,14 +11,14 @@ export function MenuUser() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="ghost" className="h-auto px-1 py-1" />}>
         {isMobile ? (
           <Avatar>
             <AvatarImage />
             <AvatarFallback className="bg-secondary text-secondary-foreground">FH</AvatarFallback>
           </Avatar>
         ) : (
-          <Item className="p-2 hover:bg-subtle in-data-popup-open:bg-subtle">
+          <Item className="p-0">
             <ItemActions>
               <Avatar size="lg">
                 <AvatarImage />
