@@ -1,5 +1,5 @@
-import { Link } from '@tanstack/react-router';
-import { Fragment } from 'react';
+import { Link, useLocation } from '@tanstack/react-router';
+import { Fragment, useEffect } from 'react';
 
 import { Brand } from '@/components/ui/brand';
 import {
@@ -21,9 +21,15 @@ import { IconLayoutSidebarLeftCollapseFilled, IconLayoutSidebarLeftExpandFilled 
 import { useSidebarItems } from './hooks/use-sidebar-items';
 
 export function AppSidebar() {
+  const location = useLocation();
   const sidebar = useSidebar();
 
   const sidebarItems = useSidebarItems();
+
+  useEffect(() => {
+    sidebar.setOpenMobile(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   return (
     <Sidebar collapsible="icon">
